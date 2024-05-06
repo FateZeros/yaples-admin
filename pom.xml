@@ -18,7 +18,9 @@
     </parent>
 
     <modules>
+        <module>system</module>
         <module>common</module>
+        <module>logs</module>
     </modules>
 
     <!-- 公共属性 -->
