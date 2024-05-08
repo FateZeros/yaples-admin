@@ -4,7 +4,6 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>me.fatezero</groupId>
     <artifactId>common</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>common</name>
