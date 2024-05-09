@@ -9,6 +9,10 @@
     <name>user-center</name>
     <description>user-center</description>
 
+    <dependencies>
+
+    </dependencies>
+
     <parent>
         <artifactId>yaples</artifactId>
         <groupId>me.fatezero</groupId>
