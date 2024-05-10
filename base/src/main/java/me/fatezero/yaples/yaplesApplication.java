@@ -3,11 +3,9 @@ package me.fatezero.yaples;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.ApplicationPidFileWriter;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-@RestController
+//@RestController
 public class yaplesApplication {
 
     public static void main(String[] args) {
@@ -18,8 +16,8 @@ public class yaplesApplication {
         springApplication.run(args);
     }
 
-    @GetMapping("/")
-    public String index() {
-        return "Backend service start success";
-    }
+//    @GetMapping("/")
+//    public String index() {
+//        return "Backend service start success";
+//    }
 }

@@ -1,7 +1,9 @@
 package me.fatezero.service;
 
-import me.fatezero.service.dto.UserDto;
+import me.fatezero.entity.User;
+
+import java.util.List;
 
 public interface UserService {
-    UserDto findById(long id);
+    List<User> list();
 }
