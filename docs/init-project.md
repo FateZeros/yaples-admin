@@ -8,6 +8,10 @@
 
 ## GAV 三元组
 
-Group: 是公司或者组织或者个人的名称，是一种命名空间的概念，比如网站，那么 group 可以是 tech/org/com/me 开头。
-Artifact: 当前项目的唯一标识。
-Version: 项目的版本号，一般xx-SNAPSHOT表示非稳定版
+- Group: 是公司或者组织或者个人的名称，是一种命名空间的概念，比如网站，那么 group 可以是 tech/org/com/me 开头。
+- Artifact: 当前项目的唯一标识。
+- Version: 项目的版本号，一般xx-SNAPSHOT表示非稳定版
+
+## 参考文档
+
+[java spring 项目推荐](https://segmentfault.com/a/1190000023015341) </br>

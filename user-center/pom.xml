@@ -7,10 +7,20 @@
     <artifactId>user-center</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>user-center</name>
-    <description>user-center</description>
+    <description>用户中心</description>
 
     <dependencies>
-
+        <dependency>
+            <groupId>me.fatezero</groupId>
+            <artifactId>common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>me.fatezero</groupId>
+            <artifactId>common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <parent>
