@@ -1,6 +1,6 @@
 package me.fatezero.entity;
 
-import me.fatezero.base.BaseEntity;
+import me.fatezero.common.entity.BaseEntity;
 
 import javax.persistence.*;
 

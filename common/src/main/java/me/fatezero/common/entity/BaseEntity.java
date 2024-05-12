@@ -1,4 +1,4 @@
-package me.fatezero.base;
+package me.fatezero.common.entity;
 
 import java.io.Serializable;
 
