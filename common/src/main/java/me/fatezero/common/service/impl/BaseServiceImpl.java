@@ -1,7 +1,7 @@
 package me.fatezero.common.service.impl;
 
-import me.fatezero.common.dao.BaseDao;
 import me.fatezero.common.entity.BaseEntity;
+import me.fatezero.common.repository.BaseRepository;
 import me.fatezero.common.service.BaseService;
 
 import org.springframework.data.domain.Page;
@@ -20,7 +20,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity, I extends Serializab
     /**
      * @return BaseDao
      */
-    public abstract BaseDao<T, I> getBaseDao();
+    public abstract BaseRepository<T, I> getBaseRepository();
 
     /**
      * findById.
@@ -30,7 +30,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity, I extends Serializab
      */
     @Override
     public T find(I id) {
-        return getBaseDao().findById(id).orElse(null);
+        return getBaseRepository().findById(id).orElse(null);
     }
 
     /**
@@ -38,7 +38,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity, I extends Serializab
      */
     @Override
     public List<T> findAll() {
-        return getBaseDao().findAll();
+        return getBaseRepository().findAll();
     }
 
     /**
@@ -48,7 +48,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity, I extends Serializab
     @Override
     public List<T> findList(I[] ids) {
         List<I> idList = Arrays.asList(ids);
-        return getBaseDao().findAllById(idList);
+        return getBaseRepository().findAllById(idList);
     }
 
     /**
@@ -59,7 +59,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity, I extends Serializab
      */
     @Override
     public List<T> findList(Specification<T> spec) {
-        return getBaseDao().findAll(spec);
+        return getBaseRepository().findAll(spec);
     }
 
     /**
@@ -71,7 +71,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity, I extends Serializab
      */
     @Override
     public List<T> findList(Specification<T> spec, Sort sort) {
-        return getBaseDao().findAll(spec, sort);
+        return getBaseRepository().findAll(spec, sort);
     }
 
     /**
@@ -82,7 +82,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity, I extends Serializab
      */
     @Override
     public T findOne(Specification<T> spec) {
-        return getBaseDao().findOne(spec).orElse(null);
+        return getBaseRepository().findOne(spec).orElse(null);
     }
 
     /**
@@ -91,7 +91,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity, I extends Serializab
      */
     @Override
     public Page<T> findAll(Pageable pageable) {
-        return getBaseDao().findAll(pageable);
+        return getBaseRepository().findAll(pageable);
     }
 
     /**
@@ -101,7 +101,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity, I extends Serializab
      */
     @Override
     public long count() {
-        return getBaseDao().count();
+        return getBaseRepository().count();
     }
 
     /**
@@ -112,7 +112,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity, I extends Serializab
      */
     @Override
     public long count(Specification<T> spec) {
-        return getBaseDao().count(spec);
+        return getBaseRepository().count(spec);
     }
 
     /**
@@ -123,7 +123,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity, I extends Serializab
      */
     @Override
     public boolean exists(I id) {
-        return getBaseDao().findById(id).isPresent();
+        return getBaseRepository().findById(id).isPresent();
     }
 
     /**
@@ -133,7 +133,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity, I extends Serializab
      */
     @Override
     public void save(T entity) {
-        getBaseDao().save(entity);
+        getBaseRepository().save(entity);
     }
 
     /**
@@ -143,7 +143,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity, I extends Serializab
      */
     @Override
     public void save(List<T> entities) {
-        getBaseDao().saveAll(entities);
+        getBaseRepository().saveAll(entities);
     }
 
     /**
@@ -154,7 +154,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity, I extends Serializab
      */
     @Override
     public T update(T entity) {
-        return getBaseDao().saveAndFlush(entity);
+        return getBaseRepository().saveAndFlush(entity);
     }
 
     /**
@@ -164,7 +164,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity, I extends Serializab
      */
     @Override
     public void delete(I id) {
-        getBaseDao().deleteById(id);
+        getBaseRepository().deleteById(id);
     }
 
     /**
@@ -174,7 +174,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity, I extends Serializab
      */
     @Override
     public void deleteByIds(List<I> ids) {
-        getBaseDao().deleteAllById(ids);
+        getBaseRepository().deleteAllById(ids);
     }
 
     /**
@@ -182,7 +182,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity, I extends Serializab
      */
     @Override
     public void deleteAll() {
-        getBaseDao().deleteAllInBatch();
+        getBaseRepository().deleteAllInBatch();
     }
 
     /**
@@ -193,7 +193,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity, I extends Serializab
     @Override
     public void delete(T[] entities) {
         List<T> tList = Arrays.asList(entities);
-        getBaseDao().deleteAll(tList);
+        getBaseRepository().deleteAll(tList);
     }
 
     /**
@@ -203,7 +203,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity, I extends Serializab
      */
     @Override
     public void delete(Iterable<T> entities) {
-        getBaseDao().deleteAll(entities);
+        getBaseRepository().deleteAll(entities);
     }
 
     /**
@@ -213,7 +213,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity, I extends Serializab
      */
     @Override
     public void delete(T entity) {
-        getBaseDao().delete(entity);
+        getBaseRepository().delete(entity);
     }
 
     /**
@@ -222,7 +222,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity, I extends Serializab
      */
     @Override
     public List<T> findList(Iterable<I> ids) {
-        return getBaseDao().findAllById(ids);
+        return getBaseRepository().findAllById(ids);
     }
 
     /**
@@ -232,7 +232,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity, I extends Serializab
      */
     @Override
     public Page<T> findAll(Specification<T> spec, Pageable pageable) {
-        return getBaseDao().findAll(spec, pageable);
+        return getBaseRepository().findAll(spec, pageable);
     }
 
     /**
@@ -240,6 +240,6 @@ public abstract class BaseServiceImpl<T extends BaseEntity, I extends Serializab
      */
     @Override
     public void flush() {
-        getBaseDao().flush();
+        getBaseRepository().flush();
     }
 }

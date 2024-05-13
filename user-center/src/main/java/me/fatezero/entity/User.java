@@ -1,15 +1,18 @@
 package me.fatezero.entity;
 
+import lombok.Getter;
+import lombok.Setter;
 import me.fatezero.common.entity.BaseEntity;
 
 import javax.persistence.*;
 
-@Table(name="sys_user")
+@Getter
+@Setter
 @Entity
+@Table(name="sys_user")
 public class User extends BaseEntity {
     @Id
-    @Column(name = "id")
-    @GeneratedValue(generator = "JDBC")
+    @Column(name = "user_id")
     private Long id;
 
     private String username;

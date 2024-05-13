@@ -1,18 +1,11 @@
 package me.fatezero.repository;
 
-
+import me.fatezero.common.repository.BaseRepository;
 import me.fatezero.entity.User;
 
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Repository
-public class UserRepository {
-    private List<User> userDemoList = new ArrayList<>();
+public interface UserRepository extends BaseRepository<User, Long> {
 
-    public List<User> findAll() {
-        return userDemoList;
-    }
 }
