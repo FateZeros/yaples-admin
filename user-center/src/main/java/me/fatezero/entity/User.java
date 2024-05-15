@@ -1,10 +1,12 @@
 package me.fatezero.entity;
 
-import lombok.Getter;
-import lombok.Setter;
 import me.fatezero.common.entity.BaseEntity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -13,7 +15,19 @@ import javax.persistence.*;
 public class User extends BaseEntity {
     @Id
     @Column(name = "user_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String username;
+    @Column(name = "username")
+    private String userName;
+
+    /**
+     * create date time.
+     */
+    private LocalDateTime createTime;
+
+    /**
+     * update date time.
+     */
+    private LocalDateTime updateTime;
 }

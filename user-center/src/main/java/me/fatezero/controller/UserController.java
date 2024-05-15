@@ -8,12 +8,11 @@ import me.fatezero.utils.response.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import io.swagger.annotations.ApiOperation;
+
+import java.time.LocalDateTime;
 
 @RestController
 @RequestMapping("/api/user")
@@ -28,5 +27,19 @@ public class UserController {
     @GetMapping("list")
     public ResponseResult<Page<User>> list(@RequestParam int pageSize, @RequestParam int pageNumber) {
         return ResponseResult.success(userService.findPage(UserQueryBean.builder().build(), PageRequest.of(pageNumber, pageSize)));
+    }
+
+    @ApiOperation("Add/Edit User")
+    @PostMapping("add")
+    public ResponseResult<User> add(@RequestBody User user) {
+        if (user.getId() == null || !userService.exists(user.getId())) {
+            user.setCreateTime(LocalDateTime.now());
+            user.setUpdateTime(LocalDateTime.now());
+            userService.save(user);
+        } else {
+            user.setUpdateTime(LocalDateTime.now());
+            userService.update(user);
+        }
+        return ResponseResult.success(userService.find(user.getId()));
     }
 }
