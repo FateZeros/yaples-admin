@@ -42,7 +42,7 @@ public class UserServiceImpl extends BaseServiceImpl<User, Long> implements User
     @Override
     public Page<User> findPage(UserQueryBean queryBean, PageRequest pageRequest) {
         Specification<User> specification = Specifications.<User>and()
-                .like(StringUtils.isNotEmpty(queryBean.getUserName()), "username", queryBean.getUserName())
+                .like(StringUtils.isNotEmpty(queryBean.getName()), "user_name", queryBean.getName())
                 .build();
         return this.getBaseRepository().findAll(specification, pageRequest);
     }

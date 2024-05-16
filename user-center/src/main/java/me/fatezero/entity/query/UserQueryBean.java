@@ -6,5 +6,5 @@ import lombok.Data;
 @Data
 @Builder
 public class UserQueryBean {
-    private String userName;
+    private String name;
 }

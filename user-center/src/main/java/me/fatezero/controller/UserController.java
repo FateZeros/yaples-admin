@@ -30,8 +30,8 @@ public class UserController {
     }
 
     @ApiOperation("Add/Edit User")
-    @PostMapping("add")
-    public ResponseResult<User> add(@RequestBody User user) {
+    @PostMapping("save")
+    public ResponseResult<User> save(@RequestBody User user) {
         if (user.getId() == null || !userService.exists(user.getId())) {
             user.setCreateTime(LocalDateTime.now());
             user.setUpdateTime(LocalDateTime.now());
